@@ -38,8 +38,7 @@ services:
       - SECRET_KEY=${SECRET_KEY}
       - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
     depends_on:
-      postgres:
-        condition: service_healthy # <-- aguarda o postgres estar pronto
+      - postgres
 
 volumes:
   postgres_data:
