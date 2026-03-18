@@ -36,8 +36,11 @@ services:
       - DATABASE_URL=postgresql+asyncpg://${POSTGRES_USER:-tasktracker}:${POSTGRES_PASSWORD:-tasktracker}@postgres:5432/${POSTGRES_DB:-tasktracker}
       - SECRET_KEY=${SECRET_KEY}
       - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES:-60}
-    depends_on:
-      - postgres
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
 
 volumes:
   postgres_data:
