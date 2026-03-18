@@ -24,7 +24,7 @@ services:
       retries: 5
 
   api:
-    image: ghcr.io/arthurmnz/TaskTracker:latest
+    image: ghcr.io/arthurmnz/tasktracker:latest
     networks:
       - app-network
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
