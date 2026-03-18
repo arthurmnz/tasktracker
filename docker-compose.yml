@@ -3,6 +3,8 @@ version: "3.8"
 networks:
   app-network:
     driver: overlay
+    attachable: true
+    name: tasktracker-network
 
 services:
   postgres:
